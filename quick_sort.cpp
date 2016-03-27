@@ -1,7 +1,7 @@
 #include<iostream>
 #include<cstddef>
 #include<vector>
-namespace quick_sort_helper{
+namespace {
    auto swap = [](auto& x,auto& y){ 
       auto tmp = std::move(x);
       x = std::move(y); 
@@ -32,7 +32,7 @@ namespace quick_sort_helper{
 }
 template<typename Container>
 void quick_sort(Container& arr){
-   quick_sort_helper::quick_sort_helper(arr.begin(),arr.end()-1);
+   quick_sort_helper(arr.begin(),arr.end()-1);
 }
 int main(){
    std::vector<int> v{10,5,4,7,2};
