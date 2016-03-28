@@ -25,17 +25,20 @@ void insertion_sort(bidirectional_iterator begin,
 	 auto tmp = i;
 	 swap(*i,*--tmp);
       }
-
-      auto tmp = begin;
-      if (*begin > *++tmp)
-	 swap(*begin,*tmp);
+     if (begin == --pos){
+      if (*begin > *++pos)
+	 swap(*begin,*pos);
+     }
    }
 
 }
 
 int main(){
-   std::list<int> v{1,5,3,9,6,7};
-
+   std::list<int> v{8,10,101,1,5,3,9,6,7};
+   std::cout<<"before sorting\n";
+   for (auto i:v)
+      std::cout<<i<<" ";
+   std::cout<<"\n";
    insertion_sort(v.begin(),v.end());
    for (auto i:v)
       std::cout<<i<<" ";
