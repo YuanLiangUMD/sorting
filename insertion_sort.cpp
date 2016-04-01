@@ -1,3 +1,5 @@
+//still needs improve 4/1/2016
+
 #include<iostream>
 #include<vector>
 #include<list>
@@ -15,15 +17,19 @@ void insertion_sort(bidirectional_iterator begin,
    auto cur = begin;
    for (++cur; cur != end; ++cur){
       auto pos = cur;
-      --pos;
-      while (*cur < *pos && pos != begin  ){
+      do{
 	 --pos;
-      }
-      ++pos;
+      } while (*cur < *pos && pos != begin);
+     //std::find_if(
+
+
+      ++pos;/*wrong:maybe corrected*/
+      auto tmp_val = *cur;
       auto tmp = cur;
-      std::rotate(pos,cur,++tmp);
-      if (begin == --pos && *begin > *++pos)
-	 swap(*begin,*pos);  
+      std::move_backward(pos,cur,++tmp);
+      *pos = tmp_val;
+           if (begin == --pos && *begin > *++pos)
+      	 swap(*begin,*pos);  
    }
 }
 
