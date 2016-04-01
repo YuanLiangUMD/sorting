@@ -19,17 +19,19 @@ void insertion_sort(bidirectional_iterator begin,
       auto pos = cur;
       do{
 	 --pos;
-      } while (*cur < *pos && pos != begin);
-     //std::find_if(
+	 if (*cur < *pos){
+          ++pos;
+	  break;
+	 }
+      } while (pos != begin);
 
 
-      ++pos;/*wrong:maybe corrected*/
       auto tmp_val = *cur;
       auto tmp = cur;
       std::move_backward(pos,cur,++tmp);
       *pos = tmp_val;
-           if (begin == --pos && *begin > *++pos)
-      	 swap(*begin,*pos);  
+      //     if (begin == --pos && *begin > *++pos)
+      	// swap(*begin,*pos);  
    }
 }
 
