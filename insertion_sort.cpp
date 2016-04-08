@@ -33,9 +33,6 @@ int main(){
    for (auto i = 0; i < total_elements;i++)
       v.emplace_back(i);
    random_shuffle(v.begin(),v.end());
-   random_shuffle(v.begin(),v.end());
-   random_shuffle(v.begin(),v.end());
-   random_shuffle(v.begin(),v.end());
    std::cout<<"before sorting ID \n";
    for (auto& i:v)
       std::cout<<i.ID()<<" ";

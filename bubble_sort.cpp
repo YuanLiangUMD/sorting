@@ -15,7 +15,7 @@ void bubble_sort(bidirection_iterator begin,
                  bidirection_iterator end){
    --end;
   for( auto i = end; i != begin;i--)
-     for( auto j = begin; j != end; j++){
+     for( auto j = begin; j != i; j++){
 	auto tmp = j;
 	if (*j > *(++tmp))
 	   swap(*j,*tmp);
@@ -23,8 +23,8 @@ void bubble_sort(bidirection_iterator begin,
 }
 int main(){
    std::vector<int> v;
-   v.reserve(100);
-   for(auto i = 0; i != 100;i++)
+   v.reserve(1000);
+   for(auto i = 0; i != 1000;i++)
       v.push_back(i);
 
    random_shuffle(v.begin(),v.end());
