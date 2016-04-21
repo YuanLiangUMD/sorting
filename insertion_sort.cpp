@@ -28,11 +28,13 @@ void insertion_sort(bidirectional_iterator begin,
 
 int main(){
    std::vector<object_t> v;
-   const auto total_elements = 1000;
+   const auto total_elements = 10000;
+
    v.reserve(total_elements);
    for (auto i = 0; i < total_elements;i++)
       v.emplace_back(i);
    random_shuffle(v.begin(),v.end());
+
    std::cout<<"before sorting ID \n";
    for (auto& i:v)
       std::cout<<i.ID()<<" ";
@@ -44,10 +46,12 @@ int main(){
    std::cout<<"\n";
    std::cout<<"total elements is "<<total_elements<<" \n";
    std::cout<<"total comparison is ";
+
    auto total_comparisons = 
       std::accumulate(v.cbegin(),v.cend(),0,
 	 [](const auto& a,const auto& b){
               return (a + b.comparison()); 
 	      });
+
    std::cout<<total_comparisons<<" comaprisons\n";
 }
